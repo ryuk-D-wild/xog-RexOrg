@@ -37,14 +37,11 @@ npm install query-string
 
 
 npm install gsap pixi.js///.
+JBEIJdJvIdaQ5qWd : password;db
 event_org : nameusr
 URI string:: "" mongodb+srv://event_org:<db_password>@rexorg.2d8zi.mongodb.net/?retryWrites=true&w=majority&appName=RexOrg ""
 
 
 
 types index. ts mod userparm re change if it cause!!!!!!!!!!!
-<<<<<<< HEAD
-end start 39:20  55:26   1:33:13  ,,
-=======
 end start 39:20  55:26   1:33:13
->>>>>>> 0c5f2f925eef15d5862da562fbb11d7c37212136
