@@ -1,7 +1,7 @@
 'use server'
 
 import { revalidatePath } from 'next/cache'
-
+import { clerkClient } from "@clerk/clerk-sdk-node";
 import { connectToDatabase } from '@/lib/mongodb'
 import User from '@/lib/mongodb/models/user.model'
 import Order from '@/lib/mongodb/models/order.model'
@@ -12,12 +12,19 @@ import { CreateUserParams, UpdateUserParams } from '@/types'
 
 export async function createUser(user: CreateUserParams) {
   try {
-    await connectToDatabase()
+    await connectToDatabase();
 
-    const newUser = await User.create(user)
-    return JSON.parse(JSON.stringify(newUser))
+    const newUser = await User.create(user);
+
+    // Ensure metadata is stored correctly in Clerk
+    if (newUser) {
+      await clerkClient.users.updateUserMetadata(user.clerkId, {
+        publicMetadata: { userId: newUser._id },
+      });
+    }
   } catch (error) {
-    handleError(error)
+    console.error("Error creating user:", error);
+    throw error;
   }
 }
 
