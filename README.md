@@ -34,6 +34,11 @@ npm install svix
 
 npm install query-string
 
+npx shascn@latest add form
+
+npx shadcn@latest add input
+
+npm install react-datepicker --save
 
 
 npm install gsap pixi.js///.
@@ -41,7 +46,9 @@ JBEIJdJvIdaQ5qWd : password;db
 event_org : nameusr
 URI string:: "" mongodb+srv://event_org:<db_password>@rexorg.2d8zi.mongodb.net/?retryWrites=true&w=majority&appName=RexOrg ""
 
+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  hf token ""//"@!
+
 
 
 types index. ts mod userparm re change if it cause!!!!!!!!!!!
-end start 39:20  55:26   1:33:13
+end start 39:20  55:26   1:33:13  2:15:31

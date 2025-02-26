@@ -1,12 +1,12 @@
 import { SignIn } from "@clerk/nextjs";
 import AuthLayout from "../SingInLayuot"; // Ensure this path is correct
 
-const SignInPage = () => {
+export default function Page () {
   return (
     <AuthLayout>
-      <SignIn path="/sign-in" routing="path" signUpUrl="/sign-up" />
+      <SignIn />
     </AuthLayout>
   );
 };
 
-export default SignInPage;
+
