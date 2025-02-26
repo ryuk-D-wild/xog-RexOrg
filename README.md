@@ -46,6 +46,7 @@ JBEIJdJvIdaQ5qWd : password;db
 event_org : nameusr
 URI string:: "" mongodb+srv://event_org:<db_password>@rexorg.2d8zi.mongodb.net/?retryWrites=true&w=majority&appName=RexOrg ""
 
+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  hf token ""//"@!
 
 
 
