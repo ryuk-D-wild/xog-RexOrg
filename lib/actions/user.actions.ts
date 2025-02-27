@@ -1,7 +1,7 @@
 'use server'
 
 import { revalidatePath } from 'next/cache'
-import { clerkClient } from "@clerk/clerk-sdk-node";
+
 import { connectToDatabase } from '@/lib/mongodb'
 import User from '@/lib/mongodb/models/user.model'
 import Order from '@/lib/mongodb/models/order.model'
