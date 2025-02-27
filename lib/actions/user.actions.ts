@@ -12,19 +12,12 @@ import { CreateUserParams, UpdateUserParams } from '@/types'
 
 export async function createUser(user: CreateUserParams) {
   try {
-    await connectToDatabase();
+    await connectToDatabase()
 
-    const newUser = await User.create(user);
-
-    // Ensure metadata is stored correctly in Clerk
-    if (newUser) {
-      await clerkClient.users.updateUserMetadata(user.clerkId, {
-        publicMetadata: { userId: newUser._id },
-      });
-    }
+    const newUser = await User.create(user)
+    return JSON.parse(JSON.stringify(newUser))
   } catch (error) {
-    console.error("Error creating user:", error);
-    throw error;
+    handleError(error)
   }
 }
 

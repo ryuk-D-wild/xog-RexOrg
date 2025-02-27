@@ -16,11 +16,8 @@ type FileUploaderProps = {
 export function FileUploader({ imageUrl, onFieldChange, setFiles }: FileUploaderProps) {
   const onDrop = useCallback((acceptedFiles: File[]) => {
     setFiles(acceptedFiles)
-    
-    // Create a temporary URL for preview
-    const fileUrl = URL.createObjectURL(acceptedFiles[0])
-    onFieldChange(fileUrl)
-  }, [onFieldChange, setFiles])
+    onFieldChange(convertFileToUrl(acceptedFiles[0]))
+  }, [])
 
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,

@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   title: "REXORG",
   description: "ai based event manager",
   icons : {
-    icon: '/assets/images/logo.svg'
+    icon: '/assets/images/RexOrg.png',
   }
 };
 
