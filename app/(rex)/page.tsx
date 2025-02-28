@@ -1,8 +1,23 @@
 import Image from "next/image";
 import Link from "next/link";
 import AnimatedButton from "@/components/DinoLayout/AnimatedButton";
+import { getAllEvents } from '@/lib/actions/event.actions';
+import { SearchParamProps } from '@/types';
+import CategoryFilter from '@/components/shared/CategoryFilter';
+import Collection from '@/components/shared/Collection';
+import Search from '@/components/shared/Search';
 
-export default function Home() {
+export default async function Home({ searchParams }: SearchParamProps) {
+  const page = Number(searchParams?.page) || 1;
+  const searchText = (searchParams?.query as string) || '';
+  const category = (searchParams?.category as string) || '';
+
+  const events = await getAllEvents({
+    query: searchText,
+    category,
+    page,
+    limit: 6
+  })
   return (
     <>
       <section className="relative bg-[#f1faee] py-12 px-8">
@@ -14,10 +29,7 @@ export default function Home() {
             <p className="text- md:text-xl text-[#e0c28a] font-serif">
               Discover legendary events and unforgettable experiences.
             </p>
-            <AnimatedButton width="180px" height="55px" borderColor="#c99a5b"
-              textColor="#e0c28a"
-              borderRadius="12px"
-              transparent={true} >
+            <AnimatedButton width="180px" height="55px" borderColor="#c99a5b" textColor="#e0c28a" borderRadius="12px" transparent={true} >
               <Link href="/" style={{ fontWeight: "bold", letterSpacing: "1px" }}>
                 🔥 Explore Now
               </Link>
@@ -32,9 +44,20 @@ export default function Home() {
 
       <section>
         <h2 className="h2-bold">Trusted by Thousands of Events</h2>
-        <div className="search-category-filter">
-          {/* Add your search and category filter components here */}
+        <div className="flex w-full flex-col gap-5 md:flex-row">
+          <Search />
+          <CategoryFilter />
         </div>
+
+        <Collection 
+          data={events?.data}
+          emptyTitle="No Events Found"
+          emptyStateSubtext="Come back later"
+          collectionType="All_Events"
+          limit={6}
+          page={page}
+          totalPages={events?.totalPages}
+        />
       </section>
     </>
   );

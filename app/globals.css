@@ -198,6 +198,29 @@ body {
   }
 }
 
+.datePicker {
+  width: 100%;
+}
+
+.react-datepicker__input-container input {
+  background-color: transparent;
+  width: 100%;
+  outline: none;
+  margin-left: 16px;
+}
+
+.react-datepicker__day--selected {
+  background-color: #f4ff1e !important;
+  color: #ffffff !important;
+  border-radius: 4px;
+}
+
+.react-datepicker__time-list-item--selected {
+  background-color: #f4ff1e !important;
+}
+
+
+
 @layer utilities {
   /* Neon Glow Effect */
   .neon-glow {
