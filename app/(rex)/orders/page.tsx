@@ -5,8 +5,10 @@ import { SearchParamProps } from '@/types'
 import { IOrderItem } from '@/lib/mongodb/models/order.model'
 
 const Orders = async ({ searchParams }: SearchParamProps) => {
-  const eventId = (searchParams?.eventId as string) || ''
-  const searchText = (searchParams?.query as string) || ''
+  
+  const params = await searchParams;
+  const eventId = (params?.eventId as string) || ''
+  const searchText = (params?.query as string) || ''
 
   const orders = await getOrdersByEvent({ eventId, searchString: searchText })
 

@@ -8,9 +8,10 @@ import Collection from '@/components/shared/Collection';
 import Search from '@/components/shared/Search';
 
 export default async function Home({ searchParams }: SearchParamProps) {
-  const page = Number(searchParams?.page) || 1;
-  const searchText = (searchParams?.query as string) || '';
-  const category = (searchParams?.category as string) || '';
+  const params = await searchParams;
+  const page = Number(params?.page) || 1;
+  const searchText = (params?.query as string) || '';
+  const category = (params?.category as string) || '';
 
   const events = await getAllEvents({
     query: searchText,
